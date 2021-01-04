@@ -8,7 +8,7 @@
 ####################################
 from time_lapse_tool import *
 
-timelapse('demo.avi', 10, r"C:\Users\xli2522\Documents\GitHub\test_image")      # change folder address to your own
+timelapse('demo.avi', 10,  r"C:\Users\Leo\Documents\GitHub\imvideo\test_image")      # change folder address to your own
 
 #################################
 ###### Use plt_to_video.py ######

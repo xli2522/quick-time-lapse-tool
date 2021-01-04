@@ -35,6 +35,7 @@ def construct(container, title, fps, inspect=True):
     cvImages = []     # image container for opencv
     for image in container:       # read all sorted images 
         cvIm = np.asarray(Image.open(image))
+        image.close()
         if cvIm is not None:    
             cvImages.append(cvIm)       # add images to opencv image container
 
