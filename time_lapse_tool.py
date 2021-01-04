@@ -5,21 +5,13 @@
 
 import cv2
 import numpy as np
-import datetime
-import os.path, time
+import os.path
 import glob
 import io
-import shutil
 
-def main():
-    '''Main'''
-    timelapse('demo.mp4', 10, r"C:\Users\Documents\GitHub\timelapsetool\test_image")     # folder address of your own
-   
-    return 
-
-def timelapse(title, fps, folder_path, inspect = True):
+def timelapse(title, fps, folder_path, inspect=True):
     '''Function constructs time-lapse video from images in a folder.
-        Inputs:      title   (string)     video title + .mp4/other common video format
+        Inputs:      title   (string)     video title + .avi
                      fps     (double)     time-lapse video frames per second 
                      folder_path    (raw string)    location of the image folder
                      inspect    (boolean)       True (default)/False
@@ -48,15 +40,13 @@ def timelapse(title, fps, folder_path, inspect = True):
     height, width, layers = frame_spec.shape        # get image specs
 
     #* Video Construction
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')        # set video specs
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')        # set video specs .avi format
     video = cv2.VideoWriter(title, fourcc, fps, (width, height))  # create opencv video object
 
     for frame in cvImages:          # access each frame in the image container
         video.write(frame)         # write frame
-
         if inspect:         # if True, show frame
             cv2.imshow('Inspection', frame)
-
         if cv2.waitKey(1) & 0xFF == ord('q'):       # stop the process when interupted by key q
             break 
 
@@ -64,5 +54,3 @@ def timelapse(title, fps, folder_path, inspect = True):
     video.release()            # release the video
 
     return 
-
-main()      # run main
