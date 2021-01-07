@@ -14,6 +14,7 @@ timelapse('demo.avi', 10,  r"C:\Users\Leo\Documents\GitHub\imvideo\test_image") 
 ###### Use plt_to_video.py ######
 #################################
 import matplotlib.pyplot as plt
+import numpy as np
 from plt_to_video import *
 
 # waht your matplotlib loop might look like
